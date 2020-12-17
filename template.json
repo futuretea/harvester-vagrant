@@ -1,0 +1,49 @@
+{
+  "builders": [
+    {
+      "boot_command": [
+        "<enter>",
+        "<enter>",
+        "vagrant",
+        "<enter>",
+        "vagrant",
+        "<enter>",
+        "vagrant",
+        "<enter>",
+        "<enter>",
+        "<enter>",
+        "<enter>",
+        "<enter>",
+        "<enter>"
+      ],
+      "boot_wait": "2m",
+      "http_directory": ".",
+      "iso_checksum": "sha256:{{user `iso_checksum`}}",
+      "iso_url": "{{user `iso_url`}}",
+      "shutdown_command": "sudo poweroff",
+      "shutdown_timeout": "20s",
+      "ssh_timeout": "20m",
+      "ssh_username": "rancher",
+      "ssh_password": "vagrant",
+      "disk_size": "20000",
+      "type": "qemu",
+      "format": "qcow2",
+      "accelerator": "kvm",
+      "net_device": "virtio-net",
+      "disk_interface": "virtio"
+    }
+  ],
+  "post-processors": [
+    {
+      "output": "_output/harvester_{{user `harvester_version`}}_{{.Provider}}.box",
+      "type": "vagrant"
+    }
+  ],
+  "variables": {
+    "iso_checksum": "baa7353e292529938d97cc1ce5944d85045aba969fb57de3363cb6b5a0e33e6f",
+    "iso_url": "/home/deku/dev/box/harvester/harvester-v0.1.0-amd64.iso",
+    "password": "rancher",
+    "harvester_version": "v0.1.0"
+  }
+}
+
