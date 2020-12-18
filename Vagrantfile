@@ -16,11 +16,11 @@ Vagrant.configure("2") do |config|
       node.ssh.username = 'rancher'
       node.ssh.password = 'vagrant'
       node.ssh.insert_key = false
-      node.vm.box = 'harvester'
+      node.vm.box = 'futuretea/harvester:v0.1.0'
       node.vm.guest = 'linux'
       node.vm.hostname = "harv#{i}"
       node.vm.synced_folder '.', '/vagrant', disabled: true
-      node.vm.network :private_network, :ip => "0.0.0.0"
+      #node.vm.network :private_network, :ip => "0.0.0.0"
       node.vm.provider :libvirt do |domain|
         domain.driver = 'kvm'
         domain.memory = 16384
