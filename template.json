@@ -16,15 +16,16 @@
         "<enter>",
         "<enter>"
       ],
-      "boot_wait": "2m",
+      "boot_wait": "1m",
       "http_directory": ".",
       "iso_checksum": "sha256:{{user `iso_checksum`}}",
-      "iso_url": "https://github.com/rancher/harvester/releases/download/{{user `harvester_version`}}/harvester-amd64.iso",
+      "iso_url": "./harvester-iso/harvester-amd64-v0.1.0-box.iso",
       "shutdown_command": "sudo poweroff",
       "shutdown_timeout": "20s",
       "ssh_timeout": "20m",
       "ssh_username": "rancher",
       "ssh_password": "vagrant",
+      "headless": true,
       "disk_size": "200000",
       "type": "qemu",
       "format": "qcow2",
@@ -40,7 +41,7 @@
     }
   ],
   "variables": {
-    "iso_checksum": "baa7353e292529938d97cc1ce5944d85045aba969fb57de3363cb6b5a0e33e6f",
+    "iso_checksum": "f5648f685c442382433955bd0a266b2b13859150a59bdfcaab80e837206b052c",
     "password": "rancher",
     "harvester_version": "v0.1.0"
   }
