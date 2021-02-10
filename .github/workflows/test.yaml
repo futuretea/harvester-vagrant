@@ -1,0 +1,16 @@
+name: Test
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Test
+      run: |
+        type packer
+        type qemu-system-x86_64
+        type virsh
+        type vagrant
