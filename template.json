@@ -6,6 +6,10 @@
         "<enter>",
         "vagrant",
         "<enter>",
+        "<enter>",
+        "<enter>",
+        "vagrant",
+        "<enter>",
         "vagrant",
         "<enter>",
         "vagrant",
@@ -16,10 +20,10 @@
         "<enter>",
         "<enter>"
       ],
-      "boot_wait": "2m",
+      "boot_wait": "1m",
       "http_directory": ".",
       "iso_checksum": "sha256:{{user `iso_checksum`}}",
-      "iso_url": "https://github.com/rancher/harvester/releases/download/{{user `harvester_version`}}/harvester-amd64.iso",
+      "iso_url": "../harvester-installer/dist/artifacts/harvester-amd64.iso",
       "shutdown_command": "sudo poweroff",
       "shutdown_timeout": "20s",
       "ssh_timeout": "20m",
@@ -29,6 +33,8 @@
       "type": "qemu",
       "format": "qcow2",
       "accelerator": "kvm",
+      "cpus": 16,
+      "memory": 16384,
       "net_device": "virtio-net",
       "disk_interface": "virtio"
     }
@@ -40,9 +46,9 @@
     }
   ],
   "variables": {
-    "iso_checksum": "baa7353e292529938d97cc1ce5944d85045aba969fb57de3363cb6b5a0e33e6f",
+    "iso_checksum": "de5837ecedb21a27894e02b03219b6a38d6ae39caf02b15978ee0dc98fd014a3",
     "password": "rancher",
-    "harvester_version": "v0.1.0"
+    "harvester_version": "4210745"
   }
 }
 
