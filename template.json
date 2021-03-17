@@ -30,6 +30,7 @@
       "ssh_username": "rancher",
       "ssh_password": "vagrant",
       "disk_size": "200000",
+      "headless": false,
       "type": "qemu",
       "format": "qcow2",
       "accelerator": "kvm",
@@ -46,9 +47,9 @@
     }
   ],
   "variables": {
-    "iso_checksum": "de5837ecedb21a27894e02b03219b6a38d6ae39caf02b15978ee0dc98fd014a3",
+    "iso_checksum": "d92c83932098f056517ec6f8e314cf8c036a666641ca7f28a19bec46aaef2410",
     "password": "rancher",
-    "harvester_version": "4210745"
+    "harvester_version": "dev"
   }
 }
 
