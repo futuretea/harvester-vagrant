@@ -22,10 +22,10 @@ Vagrant.configure("2") do |config|
       node.vm.synced_folder '.', '/vagrant', disabled: true
       node.vm.provider :libvirt do |domain|
         domain.driver = 'kvm'
-        domain.memory = 16384
-        domain.cpus = 8
+        domain.memory = 32768
+        domain.cpus = 16
         domain.nested = true
-        domain.management_network_name = "harv"
+        domain.management_network_name = "dev"
         domain.management_network_address = "10.5.6.0/24"
         domain.management_network_mac = ip2mac("50:50","10.5.6.#{i}")
         domain.storage :file, :size => '2048G', :bus => 'virtio'
@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
         domain.memory = 16384
         domain.cpus = 8
         domain.nested = true
-        domain.management_network_name = "harv"
+        domain.management_network_name = "dev"
         domain.management_network_address = "10.5.6.0/24"
         domain.management_network_mac = ip2mac("50:50","10.5.6.#{i}")
         domain.storage :file, :size => '2048G', :bus => 'virtio'

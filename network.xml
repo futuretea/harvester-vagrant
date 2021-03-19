@@ -1,11 +1,11 @@
 <network ipv6="yes">
-  <name>harv</name>
+  <name>dev</name>
   <forward mode="nat">
     <nat>
       <port start="1024" end="65535"/>
     </nat>
   </forward>
-  <bridge name="harvbr" stp="on" delay="0"/>
+  <bridge name="devbr" stp="on" delay="0"/>
   <ip address="10.5.6.1" netmask="255.255.255.0">
     <dhcp>
       <range start="10.5.6.2" end="10.5.6.254"/>
