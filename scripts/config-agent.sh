@@ -25,6 +25,3 @@ k3os:
 EOF
 
 umount /mnt
-sudo rc-update add k3s-service default
-sudo rc-update add ccapply default
-sudo rc-service ccapply restart
