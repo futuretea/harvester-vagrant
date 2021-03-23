@@ -1,0 +1,15 @@
+description,command
+Create first management node with --cluster-init, kubectl get node
+Each harvester node has `harvester.cattle.io/managed` label and Each management node has `svccontroller.k3s.cattle.io/enablelb` label, kubectl get node harv11 -ojson | jq -r '.metadata.labels'
+Check harvester is Running, kubectl -n harvester-system get po
+Use loadBalancer to expose harvester server, kubectl -n harvester-system get svc harvester
+Add the second node (worker) to the cluster, sudo vagrant up harv12
+Wait node ready, # watch kubectl -n harvester-system get no
+Add the third node (worker) to the cluster, sudo vagrant up harv13
+Wait node ready, # watch kubectl -n harvester-system get no
+Harvester will create promote job on each node, kubectl -n harvester-system get job
+Check the second node's event, kubectl describe no harv12
+Check the third node's event, kubectl describe no harv13
+Shutdown the first node, sudo vagrant halt harv11
+Change kubeconfig, sed 's/10.5.6.11/10.5.6.12/g' ~/.kube/config
+Check harvester service, kubectl -n harvester-system get svc harvester
