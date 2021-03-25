@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
       node.vm.provider :libvirt do |domain|
         domain.driver = 'kvm'
         domain.memory = 32768
-        domain.cpus = 16
+        domain.cpus = 8
         domain.nested = true
         domain.management_network_name = "dev"
         domain.management_network_address = "10.5.6.0/24"
@@ -31,10 +31,8 @@ Vagrant.configure("2") do |config|
         domain.storage :file, :size => '2048G', :bus => 'virtio'
         domain.storage :file, :size => '1024G', :bus => 'virtio'
       end
-      node.vm.provision :shell, :path => 'scripts/config-first-server.sh',
-        :upload_path => '/home/rancher/vagrant-shell'
-      node.vm.provision :shell, :path => 'scripts/start-k3s.sh',
-        :upload_path => '/home/rancher/vagrant-shell'
+      node.vm.provision :shell, :path => 'scripts/config-first-server.sh', :upload_path => '/home/rancher/vagrant-shell'
+      node.vm.provision :shell, :path => 'scripts/start-k3s.sh', :upload_path => '/home/rancher/vagrant-shell'
     end
   end
 end
@@ -60,10 +58,8 @@ Vagrant.configure("2") do |config|
         domain.storage :file, :size => '2048G', :bus => 'virtio'
         domain.storage :file, :size => '1024G', :bus => 'virtio'
       end
-      node.vm.provision :shell, :path => 'scripts/config-agent.sh',
-        :upload_path => '/home/rancher/vagrant-shell'
-      node.vm.provision :shell, :path => 'scripts/start-k3s.sh',
-        :upload_path => '/home/rancher/vagrant-shell'
+      node.vm.provision :shell, :path => 'scripts/config-agent.sh', :upload_path => '/home/rancher/vagrant-shell'
+      node.vm.provision :shell, :path => 'scripts/start-k3s.sh', :upload_path => '/home/rancher/vagrant-shell'
     end
   end
 end
