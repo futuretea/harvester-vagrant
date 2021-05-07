@@ -1,9 +1,13 @@
 # harvester-vagrant
 
 ## build box
-You need to manually press Enter on the grub page
 ```bash
-sudo packer build ./template.json
+./build-iso.sh harvester-dev.box ./harvester-amd64.iso
+```
+
+## add box
+```bash
+sudo vagrant box add harvester-dev harvester-dev.box
 ```
 
 ## define network
