@@ -15,12 +15,12 @@ make -C harvester-installer-box
 
 ## build box
 ```bash
-./build-iso.sh harvester-dev.box ./harvester-installer-box/dist/artifacts/harvester-amd64.iso
+./build-iso.sh harvester-dev.box $PWD/harvester-installer-box/dist/artifacts/harvester-amd64.iso
 ```
 
 ## add box
 ```bash
-sudo vagrant box add harvester-dev harvester-dev.box
+sudo vagrant box add harvester-dev ./output-qemu/harvester-dev.box
 ```
 
 ## define network
@@ -28,7 +28,7 @@ sudo vagrant box add harvester-dev harvester-dev.box
 sudo virsh net-define --file network.xml
 ```
 
-## up box
+## up harvester cluster
 ```bash
 sudo vagrant up
 ```
