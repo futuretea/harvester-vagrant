@@ -5,7 +5,7 @@ set -eou pipefail
 usage() {
     cat <<HELP
 USAGE:
-    build-iso NAME ISO [SIZE] [DIR]
+    build-box NAME ISO [SIZE] [DIR]
 HELP
 }
 
